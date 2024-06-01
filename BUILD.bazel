@@ -1,0 +1,11 @@
+cc_library(
+    name = "cppzmq",
+    srcs = glob([]),
+    hdrs = [
+        "zmq.hpp",
+        "zmq_addon.hpp",
+    ],
+    defines = [],
+    includes = [],
+    visibility = ["//visibility:public"],
+)

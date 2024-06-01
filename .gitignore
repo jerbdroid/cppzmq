@@ -3,3 +3,10 @@
 
 # Build directory
 *build/
+
+
+**/bazel-bin
+**/bazel-out
+**/bazel-cppzmq
+**/bazel-testlogs
+MODULE.bazel.lock

@@ -1,0 +1,5 @@
+module(
+    name = "cppzmq",
+    version = "4.10.0",
+)
+ 
