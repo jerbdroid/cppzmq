@@ -1625,6 +1625,9 @@ ZMQ_DEFINE_INTEGRAL_BOOL_UNIT_OPT(ZMQ_ROUTER_MANDATORY, router_mandatory, int);
 #ifdef ZMQ_ROUTER_NOTIFY
 ZMQ_DEFINE_INTEGRAL_OPT(ZMQ_ROUTER_NOTIFY, router_notify, int);
 #endif
+#ifdef ZMQ_ROUTER_RAW
+ZMQ_DEFINE_INTEGRAL_OPT(ZMQ_ROUTER_RAW, router_raw, int);
+#endif
 #ifdef ZMQ_ROUTING_ID
 ZMQ_DEFINE_ARRAY_OPT_BINARY(ZMQ_ROUTING_ID, routing_id);
 #endif
@@ -2384,6 +2387,8 @@ class monitor_t
 
         _socket = socket_ref();
     }
+
+    virtual void on_monitor_stopped() {}
 #endif
     virtual void on_monitor_started() {}
     virtual void on_event_connected(const zmq_event_t &event_, const char *addr_)
@@ -2525,6 +2530,7 @@ class monitor_t
 
 #ifdef ZMQ_EVENT_MONITOR_STOPPED
         if (event->event == ZMQ_EVENT_MONITOR_STOPPED) {
+            on_monitor_stopped();
             return false;
         }
 
